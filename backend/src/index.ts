@@ -2,7 +2,7 @@ import express from "express"
 import http from "http"
 import { Server } from "socket.io"
 import cors from "cors"
-import { PrismaClient } from '@prisma/client/edge'
+import { PrismaClient } from '@prisma/client'
 import jwt from "jsonwebtoken"
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { config, configDotenv } from "dotenv"

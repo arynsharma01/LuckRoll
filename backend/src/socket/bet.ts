@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client/edge";
+import { PrismaClient } from "@prisma/client";
 import { Socket } from "socket.io";
 import { getBalance, setBalance, updateBalance } from "../utils/balanceStore";
 
