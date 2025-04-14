@@ -7,14 +7,14 @@ const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
 const socket_io_1 = require("socket.io");
 const cors_1 = __importDefault(require("cors"));
-const edge_1 = require("@prisma/client/edge");
+const client_1 = require("@prisma/client");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const extension_accelerate_1 = require("@prisma/extension-accelerate");
 const dotenv_1 = require("dotenv");
 const cash_1 = __importDefault(require("./socket/cash"));
 const routes_1 = __importDefault(require("./routes"));
 const bet_1 = __importDefault(require("./socket/bet"));
-const basePrisma = new edge_1.PrismaClient({
+const basePrisma = new client_1.PrismaClient({
     datasourceUrl: process.env.DATABASE_URL_ACC
 });
 const prisma = basePrisma.$extends((0, extension_accelerate_1.withAccelerate)());

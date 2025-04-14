@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const edge_1 = require("@prisma/client/edge");
+const client_1 = require("@prisma/client");
 const extension_accelerate_1 = require("@prisma/extension-accelerate");
 const dotenv_1 = require("dotenv");
 const express_1 = __importDefault(require("express"));
@@ -21,7 +21,7 @@ const zod_1 = require("zod");
 const signupRouter = express_1.default.Router();
 (0, dotenv_1.config)();
 signupRouter.use(express_1.default.json());
-const prisma = new edge_1.PrismaClient({
+const prisma = new client_1.PrismaClient({
     datasourceUrl: process.env.DATABASE_URL_ACC
 }).$extends((0, extension_accelerate_1.withAccelerate)());
 const userSchema = zod_1.z.object({
