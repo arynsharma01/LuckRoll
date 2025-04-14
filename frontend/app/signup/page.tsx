@@ -34,7 +34,7 @@ export default function Signup() {
         }
 
         try {
-            const res = await axios.post('http://localhost:3001/luckroll/v1/user/signup', body)
+            const res = await axios.post(`https://luckroll-production.up.railway.app/luckroll/v1/user/signup`, body)
             const data = res.data as responseData
             if (res.status === 200) {
 
@@ -62,7 +62,7 @@ export default function Signup() {
 
             try {
 
-                const res = await axios.get(`http://localhost:3001/luckroll/v1/user/signup/username?username=${username}`)
+                const res = await axios.get(`https://luckroll-production.up.railway.app/luckroll/v1/user/signup/username?username=${username}`)
 
 
                 const data = res.data as { message: string }
@@ -81,15 +81,18 @@ export default function Signup() {
 
 
     }, [username])
+    
+    
 
-    if (localStorage.getItem('Authorization')) {
-        return <div className="text-black text-3xl text-center flex justify-center items-center">
-            Already logined
-            <Button onClick={() => {
-                localStorage.removeItem('Authorization')
-            }} text="Logout" />
-        </div>
-    }
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem('Authorization');
+            if (token) {
+                router.push('/')
+            }
+        }
+    }, []);
+    
 
 
     return <div className="bg-slate-800 w-full  min-h-screen flex  flex-col items-center justify-center overflow-x-hidden  ">

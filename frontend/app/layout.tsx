@@ -32,11 +32,11 @@ export default function RootLayout({
 
   return (
     <CashProvider>
-      <html className="overflow-auto" lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+      <html className="overflow-x-hidden" lang="en">
+        <body 
+          className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden `}
         >
-          <div className="flex lg:justify-evenly justify-between bg-slate-700 w-full min-h-16  p-2 max-h-24 items-center shadow-md shadow-black  " >
+          <div className="flex lg:justify-evenly justify-between bg-slate-700 w-full min-h-16  p-2 max-h-24 items-center shadow-md shadow-black  overflow-x-hidden " >
             <DiceImage />
             <div className="flex gap-2 "  >
               <div className=" flex p-4 border border-white rounded-xl text-white gap-1">

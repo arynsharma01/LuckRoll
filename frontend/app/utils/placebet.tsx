@@ -1,7 +1,7 @@
 
 
 import { Socket } from "socket.io-client"
-import { useCash } from "../context/CashContext"
+
 import { getSocket } from "./socket"
 
 type promiseData=  {

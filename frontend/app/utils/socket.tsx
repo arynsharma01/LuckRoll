@@ -9,7 +9,7 @@ export const getSocket = (): Socket | null => {
             if (!token) return null
 
             socket =
-                io("http://localhost:3001", {
+                io("https://luckroll-production.up.railway.app", {
                     auth: {
                         token: token
                     },
