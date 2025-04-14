@@ -9,12 +9,6 @@ export default function Cash() {
 
     const {cash} = useCash()
       return <div className="text-md text-white ">
-        {cash}
+        {cash.toFixed(2)}
       </div>
-     
-      
-  
 }
-
-
-
