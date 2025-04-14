@@ -53,14 +53,14 @@ export default function Signin() {
     }
 
 
-    if (localStorage.getItem('Authorization')) {
-        return <div className="text-black text-3xl text-center flex justify-center items-center">
-            Already logined
-            <Button onClick={() => {
-                localStorage.removeItem('Authorization')
-            }} text="Logout" />
-        </div>
-    }
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem('Authorization');
+            if (token) {
+                router.push('/')
+            }
+        }
+    }, []);
 
 
     return <div className="bg-slate-800 w-full  min-h-screen flex  flex-col items-center justify-center overflow-x-hidden  ">
