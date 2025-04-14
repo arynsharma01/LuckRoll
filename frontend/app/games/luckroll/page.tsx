@@ -61,6 +61,5 @@ export default function LuckRoll() {
         </div>
 
 
-
     </div>
 }

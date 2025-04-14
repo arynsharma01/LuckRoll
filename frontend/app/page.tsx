@@ -11,8 +11,6 @@ export default function Home({ children }: { children: React.ReactNode }) {
         
         <GameCard/>
       </div>
-
-
       {children}
     </div>
   );

@@ -51,7 +51,6 @@ export const CashProvider = ({ children }: CashProviderType) => {
   const [user ,setUser] = useState<string>("")
 
 
-    
 
     useEffect(() => {
       try {

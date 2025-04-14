@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "Luck Roll ",
   description: "Try your Luck ",
 
-};
+}
 
 export default function RootLayout({
   children,

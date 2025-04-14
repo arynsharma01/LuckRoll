@@ -33,6 +33,7 @@ export default function Signup() {
 
         }
 
+        
         try {
             const res = await axios.post(`https://luckroll-production.up.railway.app/luckroll/v1/user/signup`, body)
             const data = res.data as responseData
