@@ -11,6 +11,7 @@ export default function BetButton(){
     
     const {diceValue,setDiceValue ,setRolling , betValue,highLow,multiplier ,setAnimation,animation ,lowBalanceCard } = useCash()
     const [click,setClick] = useState(false)
+    const [authToken , setAuthToken] = useState<boolean>(false)
 
     const coinAudio = useMemo(() => new Howl({ src: ["/dicesound.mp3"] }), [])
 
@@ -21,6 +22,16 @@ export default function BetButton(){
         return () => clearTimeout(time)
     },[click])
 
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem('Authorization');
+            if (token) {
+                setAuthToken(true)
+            }
+        }
+    }, []);
+
+
     const router = useRouter()
     
 
@@ -29,7 +40,7 @@ export default function BetButton(){
         
         onClick={async ()=>{
             
-            if (!localStorage.getItem("Authorization")) {
+            if (!authToken) {
                 router.push('/signup') 
                 return
                 

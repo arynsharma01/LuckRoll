@@ -85,6 +85,9 @@ export default function Signup() {
     
     
 
+    
+
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const token = localStorage.getItem('Authorization');
