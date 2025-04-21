@@ -1,8 +1,13 @@
 "use client"
 import BetButton from "@/app/components/Betbutton";
+import dynamic from "next/dynamic";
+
+const HighLow = dynamic(() => import("@/app/components/HighLow"), {
+  ssr: false,
+});
 
 import Dice from "@/app/components/Dice";
-import HighLow from "@/app/components/HighLow";
+
 import InputBet from "@/app/components/InputBet";
 import { LostAnimation } from "@/app/components/Lost";
 import Multiplier from "@/app/components/MultiplierButton";

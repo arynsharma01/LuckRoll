@@ -56,6 +56,14 @@ export default function Signup() {
 
 
     }
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem('Authorization');
+            if (token) {
+                router.push('/')
+            }
+        }
+    }, []);
 
     useEffect(() => {
 
@@ -88,14 +96,7 @@ export default function Signup() {
     
 
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const token = localStorage.getItem('Authorization');
-            if (token) {
-                router.push('/')
-            }
-        }
-    }, []);
+   
     
 
 

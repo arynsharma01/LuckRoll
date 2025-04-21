@@ -2,15 +2,21 @@
 
 import { useCash } from "../context/CashContext"
 import { Howl } from 'howler';
+import { useMemo } from "react";
 interface SelectProps {
     value: string
 }
 
+
+
+
 export default function HighLow({ value }: SelectProps) {
     const { highLow , setHighLow } = useCash()
-    const sound = new Howl({
+    const sound = useMemo(() => new Howl({
         src: ['/highlowsound.mp3'],
-      });
+      }), []);
+      
+   
 
     return (
         <div
