@@ -1,5 +1,8 @@
 "use client"
-import Lottie from "lottie-react"
+import dynamic from "next/dynamic";
+import WinAnimate from "./AnimationData/winAnimate.json";
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import lostAnimate from "./AnimationData/lostAnimate.json"
 import { useState } from "react"
 export const LostAnimation =()=>{

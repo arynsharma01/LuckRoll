@@ -6,6 +6,8 @@ const HighLow = dynamic(() => import("@/app/components/HighLow"), {
   ssr: false,
 });
 
+
+
 import Dice from "@/app/components/Dice";
 
 import InputBet from "@/app/components/InputBet";
