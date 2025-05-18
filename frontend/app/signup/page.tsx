@@ -35,7 +35,7 @@ export default function Signup() {
 
         
         try {
-            const res = await axios.post(`https://luckroll-production.up.railway.app/luckroll/v1/user/signup`, body)
+            const res = await axios.post(`https://luckroll.onrender.com/luckroll/v1/user/signup`, body)
             const data = res.data as responseData
             if (res.status === 200) {
 
@@ -71,7 +71,7 @@ export default function Signup() {
 
             try {
 
-                const res = await axios.get(`https://luckroll-production.up.railway.app/luckroll/v1/user/signup/username?username=${username}`)
+                const res = await axios.get(`https://luckroll.onrender.com/luckroll/v1/user/signup/username?username=${username}`)
 
 
                 const data = res.data as { message: string }

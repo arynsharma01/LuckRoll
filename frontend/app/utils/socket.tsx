@@ -10,7 +10,7 @@ export const getSocket = (): Socket | null => {
     const token = localStorage.getItem("Authorization")
     if (!token) return null;
 
-    socket = io("https://luckroll-production.up.railway.app", {
+    socket = io("https://luckroll.onrender.com", {
       auth: {
         token: token,
       },
