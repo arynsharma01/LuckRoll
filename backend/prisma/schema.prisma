@@ -20,6 +20,15 @@ model User {
   name        String      
   email       String        @unique
   password    String
-  balance     Float           @default(100)
+  balance     Float         @default(100)
+      
+  
+}
+
+model UserOtp{
+  id          String           @id 
+  otp         Int           @unique
+  createdAt   DateTime      @default(now())
+  deleteAt    DateTime
   
 }

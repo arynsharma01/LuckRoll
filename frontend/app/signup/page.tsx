@@ -6,10 +6,15 @@ import axios from "axios";
 import Loader from "../components/loader";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { InputOTPDemo } from "../components/OtpCard";
 
 type responseData = {
     message: string,
     token: string
+}
+type middleTokenData = {
+    id : string,
+    message : string
 }
 export default function Signup() {
 
@@ -24,18 +29,22 @@ export default function Signup() {
     const [usernameWarning, setUsernameWarning] = useState<String>("")
     const [usernameColor, setUsernameColor] = useState<String>("")
     const [response, setResponse] = useState<String>("")
+    const [otpPage , setOtpPage ] = useState<boolean>(false)
+    async function verifyOtp() {
+        
+    }
     async function createUser() {
         const body = {
             name: name.trim(),
-            email: email.trim(),
+            email: email.trim().toLowerCase(),
             password: password.trim(),
-            username: username.trim()
+            username: username.trim().toLowerCase()
 
         }
 
         
         try {
-            const res = await axios.post(`https://luckroll-production.up.railway.app/luckroll/v1/user/signup`, body)
+            const res = await axios.post(`https://luckroll-production.up.railway.app/luckroll/v1/user/signup/verify/otp`, body)
             const data = res.data as responseData
             if (res.status === 200) {
 
@@ -92,15 +101,22 @@ export default function Signup() {
     }, [username])
     
     
-
     
-
+    
+    
+    
 
    
     
 
 
     return <div className="bg-slate-800 w-full  min-h-screen flex  flex-col items-center justify-center overflow-x-hidden  ">
+        {(otpPage)?
+        <div className="fixed z-50  w-[40vw]">
+            <InputOTPDemo/>
+        </div>
+        : ""
+}
         <div className=" flex flex-col items-center justify-center md:w-auto w-screen bg-black  gap-1   p-10 min-h-screen mt-1 md:min-h-32 text-white rounded-xl shadow-xl border  shadow-sky-100">
             <div className="text-3xl font-semibold pb-2 ">
                 Create Account
@@ -145,6 +161,9 @@ export default function Signup() {
 
             }} />
             }
+            <Button text="Hello" onClick={()=>{
+                setOtpPage(true)
+            }}/>
             <div className="text-white">
                 {response}
             </div>
